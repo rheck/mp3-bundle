@@ -1,0 +1,23 @@
+{
+    "name": "rheck/mp3-bundle",
+    "description": "Bundle to control a mp3 file.",
+    "keywords": ["mp3","php-mp3"],
+    "homepage": "",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ricardo Heck",
+            "email": "ricardoh3ck@gmail.com"
+        }
+    ],
+    "minimumstability": "dev",
+    "require": {
+        "php": ">= 5.3.3",
+        "symfony/symfony": "2.3.*"
+    },
+    "autoload": {
+        "psr-0": { "Rheck\\Mp3Bundle": "" }
+    },
+    "target-dir": "Rheck/Mp3Bundle"
+}
