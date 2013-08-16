@@ -25,7 +25,7 @@ class Mp3Service
 
         $this->fileAnalysis = intval(!empty($analysis)) + intval(!empty($getFramesIndex));
 
-        if(!$fileSource = @fopen($filePath, 'rb')) {
+        if(!$this->fp = @fopen($filePath, 'rb')) {
             return false;
         }
 
