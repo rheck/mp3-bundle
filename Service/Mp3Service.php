@@ -27,7 +27,7 @@ class Mp3Service
             ->handle($fileSource);
 
         $id3v2         = $id3v2Handle['id3v2'];
-        $posAudioStart = $id3v2Handle['postAudioStart'];
+        $posAudioStart = $id3v2Handle['posAudioStart'];
 
 
         $id3v1Handle = HandlerFactory::get('id3v1')
@@ -60,7 +60,7 @@ class Mp3Service
         );
 
         foreach($return as $variable => $value) {
-            if(!$value) {
+            if($value === false) {
                 unset($return[$variable]);
             }
         }

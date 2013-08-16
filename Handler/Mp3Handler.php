@@ -2,8 +2,10 @@
 
 namespace Rheck\Mp3Bundle\Handler;
 
+use Rheck\Mp3Bundle\Registry\BitRate;
 use Rheck\Mp3Bundle\Registry\Mode;
 use Rheck\Mp3Bundle\Registry\ModeExtension;
+use Rheck\Mp3Bundle\Registry\SamplingFrequency;
 use Rheck\Mp3Bundle\StaticFactory\HandlerFactory;
 
 class Mp3Handler

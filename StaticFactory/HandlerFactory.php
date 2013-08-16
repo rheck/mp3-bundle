@@ -12,7 +12,7 @@ class HandlerFactory
             'mp3'   => 'Rheck\Mp3Bundle\Handler\Mp3Handler'
         );
 
-        if (!isset($handler[$handlerName])) {
+        if (!isset($handlers[$handlerName])) {
             return false;
         }
 

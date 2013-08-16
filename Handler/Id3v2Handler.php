@@ -2,6 +2,8 @@
 
 namespace Rheck\Mp3Bundle\Handler;
 
+use Rheck\Mp3Bundle\StaticFactory\HandlerFactory;
+
 class Id3v2Handler
 {
     public function handle($fileSource)
@@ -16,7 +18,11 @@ class Id3v2Handler
 
         if(!$tagHeader || $tagHeader['identifier'] != 'ID3') {
             fseek($fileSource, $pos_call);
-            return false;
+
+            return array(
+                'posAudioStart' => 0,
+                'id3v2'         => false
+            );
         }
 
         $tag['version']  = $tagHeader['version'];
@@ -37,7 +43,10 @@ class Id3v2Handler
             | ($tagHeader['size3']);
 
         if(($tagSize = intval($tagSize)) < 1) {
-            return false;
+            return array(
+                'posAudioStart' => 0,
+                'id3v2'         => false
+            );
         }
 
         $tag['size']   = $tagSize;

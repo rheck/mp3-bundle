@@ -4,7 +4,7 @@ namespace Rheck\Mp3Bundle\Handler;
 
 use Rheck\Mp3Bundle\Registry\Genres;
 
-class Idv1Handler
+class Id3v1Handler
 {
     public function handle($fileSource, $fileSize)
     {
