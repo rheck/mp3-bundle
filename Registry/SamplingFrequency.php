@@ -12,7 +12,7 @@ class SamplingFrequency
             '10' => array('32000', '16000', '8000')
         );
 
-        if (isset($frequencies[$arg0][$arg1])) {
+        if (!isset($frequencies[$arg0][$arg1])) {
             return false;
         }
 

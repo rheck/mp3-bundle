@@ -13,7 +13,7 @@ class Mode
             '11' => 'Single Channel'
         );
 
-        if (isset($modes[$name])) {
+        if (!isset($modes[$name])) {
             return false;
         }
 

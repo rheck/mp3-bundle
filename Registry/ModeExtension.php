@@ -13,7 +13,7 @@ class ModeExtension
             '11' => array(1, 1)
         );
 
-        if (isset($modeExtensions[$name])) {
+        if (!isset($modeExtensions[$name])) {
             return false;
         }
 

@@ -146,7 +146,7 @@ class Mp3Service
             $frameId          = $frameHeader['frameid'];
             $frameDescription = 'Unknown';
 
-            if(isset(Frame::get($frameId))) {
+            if(Frame::get($frameId)) {
                 $frameDescription = Frame::get($frameId);
             } else {
                 switch(strtoupper($frameId{0})) {
@@ -628,7 +628,7 @@ class Mp3Service
             $endIndex   = $endIndex > 0 ? round($maxEndIndex * $endIndex) : -1;
         }
 
-        if($startIndex < 0 || $start > $maxEndIndex) {
+        if($startIndex < 0 || $startIndex > $maxEndIndex) {
             return false;
         }
 
@@ -682,7 +682,7 @@ class Mp3Service
                 $cutData = fread($this->fp, $this->posAudioStart) . $cutData;
             }
 
-            if($this->posAudioEnd != $this->filesize) {
+            if($this->posAudioEnd != $this->fileSize) {
                 fseek($this->fp, $this->posAudioEnd);
                 $cutData .= fread($this->fp, 128);
             }

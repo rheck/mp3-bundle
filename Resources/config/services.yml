@@ -1,2 +1,6 @@
 parameters:
+    rheck.mp3.service.class: Rheck\Mp3Bundle\Service\Mp3Service
+
 services:
+    rheck.mp3.service:
+        class: %rheck.mp3.service.class%
