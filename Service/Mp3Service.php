@@ -339,7 +339,7 @@ class Mp3Service
             extract($frameHeader);
 
             $this->bitRateMin  = $this->bitRateMin > 0 ? min($this->bitRateMin, $bitRate) : $bitRate;
-            $this->bitRateMax  = max($this->bitrate_max, $bitRate);
+            $this->bitRateMax  = max($this->bitRateMax, $bitRate);
             $this->bitRateSum += $bitRate;
 
             if($this->fileAnalysis > 1) {
@@ -354,10 +354,10 @@ class Mp3Service
         $firstFrame['bitRate']    = @round($this->bitRateSum / $frameTotal);
         $firstFrame['frameTotal'] = $frameTotal;
 
-        if($this->bitrate_max != $this->bitRateMin) {
-            $firstFrame['bitrate_max'] = $this->bitrate_max;
+        if($this->bitRateMax != $this->bitRateMin) {
+            $firstFrame['bitRateMax'] = $this->bitRateMax;
             $firstFrame['bitRateMin'] = $this->bitRateMin;
-            $firstFrame['type']        = 'VBR';
+            $firstFrame['type']       = 'VBR';
         } else {
             $firstFrame['type'] = 'CBR';
         }
