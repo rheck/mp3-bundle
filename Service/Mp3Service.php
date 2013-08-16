@@ -300,18 +300,18 @@ class Mp3Service
             }
 
             $frameData = $first_frame_header;
-            unset($frameData['framesize']);
+            unset($frameData['frameSize']);
 
-            $frameData['frametotal'] = $frameTotal;
+            $frameData['frameTotal'] = $frameTotal;
             $frameData['type']       = $frameType;
         }
 
-        $frameLength = $frameData['frametotal'] * 0.026;
+        $frameLength = $frameData['frameTotal'] * 0.026;
         $frameTime   = $this->convTime(round($frameLength));
 
         $frameData['length']   = $frameLength;
         $frameData['time']     = $frameTime;
-        $frameData['filesize'] = $this->fileSize;
+        $frameData['fileSize'] = $this->fileSize;
 
         $this->data = $frameData;
 
