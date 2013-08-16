@@ -161,10 +161,10 @@ class Mp3Handler
         }
 
         for($i = 0; $i < $frameHeaderLength; $i++) {
-            $frameHeader[] = $this->convertFlag(ord($frameHeaders{$i}));
+            $frameHeader[] = $this->convertFlag(ord($frameHeaders[$i]));
         }
 
-        if($frameHeaders{0} != "\xFF" || substr($frameHeader[1], 0, 3) != '111') {
+        if($frameHeaders[0] != "\xFF" || substr($frameHeader[1], 0, 3) != '111') {
             return false;
         }
 
@@ -208,7 +208,7 @@ class Mp3Handler
             return false;
         }
 
-        $padding = $frameHeader[2]{6};
+        $padding = $frameHeader[2][6];
 
         $mode = substr($frameHeader[3], 0, 2);
         $mode = Mode::get($mode);

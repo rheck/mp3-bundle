@@ -32,9 +32,9 @@ class Id3v2Handler
 
         $tag['flag'] = array
         (
-            'unsynchronisation' => $tagFlag{0},
-            'extra'             => $tagFlag{1},
-            'istest'            => $tagFlag{2}
+            'unsynchronisation' => $tagFlag[0],
+            'extra'             => $tagFlag[1],
+            'istest'            => $tagFlag[2]
         );
 
         $tagSize = ($tagHeader['size0'] & 0x7F) << 21
@@ -73,7 +73,7 @@ class Id3v2Handler
             if(Frame::get($frameId)) {
                 $frameDescription = Frame::get($frameId);
             } else {
-                switch(strtoupper($frameId{0})) {
+                switch(strtoupper($frameId[0])) {
                     case 'T':
                         $frameDescription = 'User defined text information frame';
                         break;
@@ -132,14 +132,13 @@ class Id3v2Handler
             (
                 'frameid'     => $frameId,
                 'description' => $frameDescription,
-                'flag'        => array
-                (
-                    'tag_protect'  => $frameFlag[0]{0},
-                    'file_protect' => $frameFlag[0]{1},
-                    'readonly'     => $frameFlag[0]{2},
-                    'compressed'   => $frameFlag[1]{0},
-                    'encrypted'    => $frameFlag[1]{1},
-                    'group'        => $frameFlag[1]{2}
+                'flag'        => array (
+                    'tag_protect'  => $frameFlag[0][0],
+                    'file_protect' => $frameFlag[0][1],
+                    'readonly'     => $frameFlag[0][2],
+                    'compressed'   => $frameFlag[1][0],
+                    'encrypted'    => $frameFlag[1][1],
+                    'group'        => $frameFlag[1][2]
                 ),
                 'size' => $frameSize,
                 'data' => $frameData
