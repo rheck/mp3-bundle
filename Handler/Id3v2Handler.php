@@ -2,6 +2,7 @@
 
 namespace Rheck\Mp3Bundle\Handler;
 
+use Rheck\Mp3Bundle\Registry\Frame;
 use Rheck\Mp3Bundle\StaticFactory\HandlerFactory;
 
 class Id3v2Handler
@@ -28,7 +29,7 @@ class Id3v2Handler
         $tag['version']  = $tagHeader['version'];
         $tag['revision'] = $tagHeader['revision'];
 
-        $tagFlag = $mp3Handler->convFlag($tagHeader['flag']);
+        $tagFlag = $mp3Handler->convertFlag($tagHeader['flag']);
 
         $tag['flag'] = array
         (
@@ -89,8 +90,8 @@ class Id3v2Handler
 
             $frameFlag = array
             (
-                $mp3Handler->convFlag($frameHeader['flag0']),
-                $mp3Handler->convFlag($frameHeader['flag1'])
+                $mp3Handler->convertFlag($frameHeader['flag0']),
+                $mp3Handler->convertFlag($frameHeader['flag1'])
             );
 
             $frameCharsetData = unpack('c', fread($fileSource, 1));
